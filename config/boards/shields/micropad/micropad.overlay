@@ -1,0 +1,42 @@
+/ {
+    chosen {
+        zmk,kscan = &default_kscan;
+    };
+
+    default_kscan: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios =
+            <&xiao_d 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+
+    left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder>;
+    };
+};
+
+&gpio0 {
+    swgnd: switch-gnd-pin {
+        gpio-hog;
+        gpios = <5 GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "Switch GND Pin";
+    };
+};
+
+&gpio1 {
+    encgnd: encoder-gnd-pin {
+        gpio-hog;
+        gpios = <14 GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "Encoder GND Pin";
+    };
+};

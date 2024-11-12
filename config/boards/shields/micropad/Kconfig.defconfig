@@ -1,0 +1,6 @@
+if SHIELD_MICROPAD
+
+config ZMK_KEYBOARD_NAME
+    default "micropad"
+
+endif
