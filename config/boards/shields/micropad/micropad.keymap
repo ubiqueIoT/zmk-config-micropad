@@ -22,7 +22,6 @@
         enc_td: enc_tapdance {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tap-count = <2>;
             bindings = <&enc_p 0 C_PLAY_PAUSE>, <&studio_unlock>;
         };
     };
