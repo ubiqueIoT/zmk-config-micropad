@@ -19,11 +19,17 @@
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
         };
+        enc_td: enc_tapdance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tap-count = <2>;
+            bindings = <&enc_p 0 C_PLAY_PAUSE>, <&studio_unlock>;
+        };
     };
     keymap {
         compatible = "zmk,keymap";
         default_layer {
-            bindings = <&enc_p 0 C_PLAY_PAUSE>;
+            bindings = <&enc_td>;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
