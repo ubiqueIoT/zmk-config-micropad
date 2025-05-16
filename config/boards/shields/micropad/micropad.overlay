@@ -1,6 +1,9 @@
+#include "micropad-layouts.dtsi"
+
 / {
     chosen {
         zmk,kscan = &default_kscan;
+        zmk,physical-layout = &encoder_macropad_layout;
     };
 
     default_kscan: kscan {
